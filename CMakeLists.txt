@@ -8,6 +8,17 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_compile_options(-Wall -Wextra)
 
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/rplidar_sdk)
+    include(FetchContent)
+    FetchContent_Declare(
+        rplidar_sdk
+        GIT_REPOSITORY https://github.com/Slamtec/rplidar_sdk.git
+        GIT_TAG        master
+        SOURCE_DIR     ${CMAKE_SOURCE_DIR}/rplidar_sdk
+    )
+    FetchContent_MakeAvailable(rplidar_sdk)
+endif()
+
 set(RPLIDAR_SDK_PATH ${CMAKE_SOURCE_DIR}/rplidar_sdk/sdk)
 
 set(RPLIDAR_SOURCES
