@@ -44,6 +44,8 @@ set(RPLIDAR_SOURCES
 add_executable(yoctoLidar
     src/main.cpp
     src/obstacleDetection.cpp
+    src/UartComm.cpp
+    src/McuCommand.cpp
     ${RPLIDAR_SOURCES}
 )
 
